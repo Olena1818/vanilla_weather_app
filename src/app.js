@@ -28,13 +28,13 @@ function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemperature);
-
+  let descriptionElement = document.querySelector("#description");
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  //document.querySelector("#description").innerHTML = response.data.weather[0].main;
   let iconElement = document.querySelector("#icon");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
