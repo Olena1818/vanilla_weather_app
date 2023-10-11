@@ -25,9 +25,9 @@ function formatDate(date) {
 
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -71,8 +71,6 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("Calgary");
-
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -97,3 +95,4 @@ let celsiusTemperature = null;
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+searchCity("Calgary");
