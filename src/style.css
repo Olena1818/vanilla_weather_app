@@ -24,6 +24,9 @@ li {
   line-height: 1;
   list-style: none;
 }
+.float-left {
+  float: left;
+}
 .weather-app {
   border: 1px solid darkgrey;
   padding: 15px;
